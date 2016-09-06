@@ -1,2 +1,20 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(title: 'SignUp') %>
+<section id="signup">
+    <h1>Sign Up to become a member</h1>
+    <div class="row">
+        <div class="medium-6 columns column-offset-3">
+            <%= form_for(@user) do |f| %>
+                <%= f.label :Name %>
+                <%= f.text_field :name %>
+                <%= f.label :Email %>
+                <%= f.email_field :email %>
+                <%= f.label :Password %>
+                <%= f.email_field :password %>
+                <%= f.label :Password_confirmation , "Confirmation"%>
+                <%= f.password_field :password_confirmation %>
+                <%= f.submit 'Sign Up', class: "button large " %>
+
+            <% end %>
+        </div>
+    </div>
+</section>
