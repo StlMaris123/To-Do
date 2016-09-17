@@ -13,4 +13,15 @@ class UsersSignUpTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/show'
   end
+
+  test "invalid sign up information" do
+    get new_user_url
+    assert_no_diffrence 'User.count' do
+      post users_path, params: {user: { name: "",
+                                        email: "user@invalid",
+                                        password:              "foo",
+                                        password_confirmation: "bar"}}
+    end
+    assert_template 'users/new'
+  end
 end
